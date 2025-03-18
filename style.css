@@ -1,0 +1,536 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Lora', serif;
+    background: url('library-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e8f1ff;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 42, 108, 0.7), rgba(42, 64, 101, 0.7), rgba(74, 105, 189, 0.7));
+    z-index: -1;
+}
+
+/* Enhanced Butterfly Styling */
+.butterfly {
+    position: absolute;
+    width: 30px;
+    height: 25px;
+    z-index: 10;
+    transform-origin: center;
+    pointer-events: none;
+  }
+  
+  .butterfly-wing {
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    opacity: 0.8;
+    transform-origin: center right;
+    box-shadow: 3px 3px 10px rgba(79, 172, 254, 0.3);
+    filter: drop-shadow(0 0 5px rgba(0, 242, 254, 0.5));
+  }
+  
+  .left-wing {
+    left: -15px;
+    transform: scaleX(-1);
+    animation: flapLeft 0.3s ease-in-out infinite alternate;
+  }
+  
+  .right-wing {
+    right: -15px;
+    animation: flapRight 0.3s ease-in-out infinite alternate;
+  }
+  
+  .butterfly-body {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 16px;
+    background: linear-gradient(to bottom, #4a69bd, #78e4ff);
+    border-radius: 2px;
+  }
+  
+  .butterfly-body::before, .butterfly-body::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #4facfe;
+  }
+  
+  .butterfly-body::before {
+    top: -3px;
+    left: -1px;
+  }
+  
+  .butterfly-body::after {
+    top: 2px;
+    left: -1px;
+    width: 3px;
+    height: 3px;
+  }
+  
+  @keyframes flapLeft {
+    0% { transform: scaleX(-1) rotateY(10deg); }
+    100% { transform: scaleX(-1) rotateY(70deg); }
+  }
+  
+  @keyframes flapRight {
+    0% { transform: rotateY(10deg); }
+    100% { transform: rotateY(70deg); }
+  }
+  
+  .butterfly {
+    animation: butterflyFloat 20s linear infinite;
+  }
+  
+  @keyframes butterflyFloat {
+    0% { transform: translate(-10vw, 10vh) rotate(0deg); opacity: 0; }
+    10% { transform: translate(10vw, 5vh) rotate(10deg) scale(0.8); opacity: 1; }
+    30% { transform: translate(30vw, 15vh) rotate(-5deg) scale(1.2); }
+    50% { transform: translate(50vw, 0vh) rotate(15deg) scale(0.9); }
+    70% { transform: translate(70vw, 10vh) rotate(-10deg) scale(1.1); }
+    90% { transform: translate(90vw, 5vh) rotate(5deg) scale(0.8); opacity: 1; }
+    100% { transform: translate(110vw, 10vh) rotate(0deg); opacity: 0; }
+  }
+
+.container {
+    text-align: center;
+    background: rgba(25, 42, 86, 0.8);
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 40px rgba(79, 172, 254, 0.4), 0 0 100px rgba(0, 242, 254, 0.2);
+    max-width: 700px;
+    width: 90%;
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 20px;
+    overflow-y: auto;
+    max-height: 85vh;
+    backdrop-filter: blur(5px);
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.container:hover {
+    box-shadow: 0 0 60px rgba(79, 172, 254, 0.6), 0 0 120px rgba(0, 242, 254, 0.3);
+    transform: translateZ(10px);
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5em;
+    color: #b1e3ff;
+    text-shadow: 0 0 10px rgba(79, 172, 254, 0.6), 0 0 30px rgba(0, 242, 254, 0.3);
+    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #4facfe, #00f2fe, transparent);
+    transform: translateX(-50%);
+    transition: width 1.5s ease;
+}
+
+.container:hover h1::after {
+    width: 80%;
+}
+
+.subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4em;
+    color: #4facfe;
+    margin-top: 0;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(79, 172, 254, 0.3); }
+    100% { text-shadow: 0 0 15px rgba(0, 242, 254, 0.8), 0 0 30px rgba(0, 242, 254, 0.5); }
+}
+
+.progress-indicator {
+    font-size: 0.9em;
+    color: #b1e3ff;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    position: relative;
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 15px;
+    background: rgba(25, 42, 86, 0.5);
+    border: 1px solid rgba(79, 172, 254, 0.2);
+}
+
+#story-box {
+    min-height: 180px;
+    font-size: 1.3em;
+    line-height: 1.7;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    text-align: left;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    background: rgba(25, 42, 86, 0.4);
+    border-radius: 10px;
+    border-left: 3px solid rgba(79, 172, 254, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+#story-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(0, 242, 254, 0.1), transparent 70%);
+    pointer-events: none;
+}
+
+#story-box.fade {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+#story-text {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+#next-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(79, 172, 254, 0.6);
+    transition: all 0.3s ease, box-shadow 0.5s ease;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 1px;
+    width: auto;
+    min-width: 160px;
+    position: relative;
+    overflow: hidden;
+}
+
+#next-btn::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#next-btn:hover {
+    box-shadow: 0 0 30px rgba(79, 172, 254, 1), 0 0 20px rgba(0, 242, 254, 0.5);
+    transform: scale(1.05);
+}
+
+#next-btn:hover::before {
+    opacity: 1;
+    animation: shine 1.5s forwards;
+}
+
+@keyframes shine {
+    0% { transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { transform: scale(1) rotate(45deg); opacity: 0.5; }
+    100% { transform: scale(2) rotate(45deg); opacity: 0; }
+}
+
+#next-btn:active {
+    transform: scale(0.98);
+}
+
+#next-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4em;
+    color: #4facfe;
+    margin-top: 0;
+    margin-bottom: 30px;
+    opacity: 0.8;
+    animation: glow 3s infinite alternate;
+}
+#birthday-message {
+    margin-top: 30px;
+    opacity: 0;
+    transition: opacity 1.5s ease, transform 1.5s ease;
+    color: #b1e3ff;
+    transform: translateY(20px);
+    padding: 20px;
+    background: rgba(79, 172, 254, 0.2);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#birthday-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#birthday-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 242, 254, 0.2), transparent 70%);
+    animation: pulsate 3s infinite alternate;
+}
+
+@keyframes pulsate {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Realistic Petals */
+.petals {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.petal {
+    position: absolute;
+    width: 12px;
+    height: 18px;
+    background: radial-gradient(circle at 40% 0, #4facfe, #00f2fe 70%);
+    border-radius: 50% 50% 0 0;
+    opacity: 0.7;
+    box-shadow: 2px 2px 5px rgba(79, 172, 254, 0.3);
+    animation: realisticFall linear infinite;
+    filter: drop-shadow(0 0 5px rgba(0, 242, 254, 0.5));
+}
+
+@keyframes realisticFall {
+    0% { transform: translateY(-20vh) rotate(0deg) scale(1); opacity: 0.7; }
+    20% { transform: translateY(10vh) rotate(90deg) scale(0.9); }
+    80% { transform: translateY(80vh) rotate(270deg) scale(1.1); }
+    100% { transform: translateY(120vh) rotate(360deg) scale(0.8); opacity: 0; }
+}
+
+/* Realistic Butterflies */
+.butterflies {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Page corner effect */
+.page-corner {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, transparent 50%, rgba(79, 172, 254, 0.3) 50%);
+    z-index: 3;
+    border-radius: 0 0 5px 0;
+    transition: all 0.3s ease;
+}
+
+.page-corner:hover {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, transparent 50%, rgba(79, 172, 254, 0.5) 50%);
+}
+
+/* Sparkles and magical elements */
+.magic-sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(79, 172, 254, 0.6);
+    animation: sparkle 2s infinite linear;
+    opacity: 0;
+    z-index: 1;
+}
+
+@keyframes sparkle {
+    0% { transform: scale(0) rotate(0deg); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1.5) rotate(180deg); opacity: 0; }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+        width: 85%;
+        margin: 15px;
+        max-height: 80vh;
+    }
+    
+    h1 {
+        font-size: 1.8em;
+    }
+    
+    .subtitle {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+    }
+    
+    #story-box {
+        font-size: 1.1em;
+        line-height: 1.6;
+        min-height: 120px;
+        padding: 15px;
+    }
+    
+    #next-btn {
+        padding: 10px 25px;
+        font-size: 1em;
+    }
+}
+
+/* Media query for very small screens like iPhone SE */
+@media (max-width: 380px) {
+    .container {
+        padding: 20px 15px;
+        width: 90%;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+        margin-bottom: 15px;
+    }
+    
+    #story-box {
+        font-size: 1em;
+        line-height: 1.5;
+        min-height: 100px;
+        padding: 10px;
+    }
+    
+    #next-btn {
+        padding: 8px 20px;
+        font-size: 0.9em;
+        min-width: 140px;
+    }
+    
+    .page-corner {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* For landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 15px 25px;
+        max-height: 85vh;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+        margin-bottom: 2px;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+    
+    .progress-indicator {
+        margin-bottom: 10px;
+    }
+    
+    #story-box {
+        min-height: 80px;
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+    
+    #next-btn {
+        margin-top: 10px;
+    }
+}
+
+/* Touch-friendly adjustments */
+@media (hover: none) {
+    #next-btn:hover {
+        transform: none;
+        box-shadow: 0 0 15px rgba(79, 172, 254, 0.6);
+    }
+    
+    #next-btn:hover::before {
+        animation: none;
+        opacity: 0;
+    }
+    
+    .container:hover h1::after {
+        width: 0;
+    }
+    
+    .container:hover {
+        transform: none;
+        box-shadow: 0 0 40px rgba(79, 172, 254, 0.4), 0 0 100px rgba(0, 242, 254, 0.2);
+    }
+}
+/* Existing CSS remains unchanged */
+/* Add this at the end to style the subtitle */
