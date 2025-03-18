@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Story parts collection
     const storyTexts = [
-        "I HOPE YOU REMEMBER THIS BOY WHO PENNED ALL THIS LINES          FOR YEWWWWWW CELENIA!!.",
+        "I HOPE YOU REMEMBER THIS BOY WHO PENNED ALL THIS LINES          FOR YEWWWWWW  💙CELENIA!!✨.",
         "Once upon a time, there was a beautiful garden. In that garden, there was a very special rose. It was the most beautiful flower, and the Gardener loved it more than anything.",
         "But one day, someone stepped on the rose and hurt it badly. Its petals were torn, and its stem bent. The rose was not dead, but deeply wounded and broken.",
         "The Gardener didn't notice right away. But when he finally saw the rose and its scars, his heart broke. With tears in his eyes, he said, 'I will bring back my dead rose to the garden!'",
