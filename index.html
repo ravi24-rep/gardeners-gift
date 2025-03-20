@@ -3,32 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Garden of the Dead Rose</title>
+    <title>Story with Butterflies</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="petals"></div>
-    <div class="butterflies"></div>
+    <!-- Canvas for Three.js butterflies -->
+    <canvas id="canvas-webgl" class="p-canvas-webgl"></canvas>
+
+    <!-- Summary for the butterfly source -->
+    <div class="p-summary">
+        <h1></h1>
+        <p>
+            <a href="https://ykob.github.io/sketch-threejs/sketch/butterfly.html" target="_blank"></a>
+        </p>
+    </div>
+
+    <!-- Existing story container -->
     <div class="container">
-        <h1>The Garden of the Dead Rose: An Eternal Tale</h1>
-        <div class="subtitle">Dedicated to 💙CELENIA!!✨</div>
+        <h1>The Gardener and the Dead Rose</h1>
+        <p class="subtitle">Dedicated to 💙CELENIA!!✨🦋</p>
+        <div class="progress-indicator">
+            Page <span id="current-part">1</span> of <span id="total-parts"></span>
+        </div>
         <div id="story-box">
-            <p id="story-text">Click 'Next' to begin a special tale...</p>
-            <div class="page-counter">Page <span id="current-part">1</span> of <span id="total-parts"></span></div>
+            <p id="story-text"></p>
         </div>
         <div class="button-container">
-            <button id="prev-btn" disabled>Previous Page</button>
+            <button id="prev-btn">Previous Page</button>
             <button id="next-btn">Next Page</button>
         </div>
-        <div id="birthday-message" class="hidden">
-            <h2>Happieee Birthday to yewwwwww, 💙Dharani✨!!</h2>
-            <p>A tale crafted just for you, forever blooming in memory.</p>
+        <div id="birthday-message" class="hidden">  
+            <h2>Happieee Birthday to yewwwwww, 💙Dharani✨🦋!!</h2>
+            <p>A tale crafted just for you, forever blooming in memory. May your day be filled with magic and joy! 🎉</p>
         </div>
     </div>
+
+    <!-- Containers for petals and butterflies (for existing 2D effects) -->
+    <div class="petals"></div>
+    <div class="butterflies"></div>
     <audio id="background-music" loop>
-        <source src="https://www.kozco.com/tech/piano2.mp3" type="audio/mp3">
+        <source src="background-music.mp3" type="audio/mp3">
     </audio>
+
+    <!-- Include Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="script.js"></script>
     <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'92274b3e2f4b44e7',t:'MTc0MjMyNzc5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
